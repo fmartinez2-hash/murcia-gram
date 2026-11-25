@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  
+  <!-- SEO Esencial -->
+  <title>MurciaGram | Inspírate en la Región de Murcia</title>
+  <meta name="description" content="Descubre el patrimonio histórico, natural y gastronómico de los municipios de la Región de Murcia en nuestra galería visual interactiva.">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Consejería de Turismo de la Región de Murcia">
+
+  <!-- Open Graph Básico -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="MurciaGram — El Pinterest de la Región de Murcia">
+  <meta property="og:description" content="Explora rincones únicos de Cartagena, Lorca, Caravaca, Bullas y toda la Región de Murcia.">
+  <meta property="og:image" content="assets/img/cartagena-desktop.jpg">
+  <meta property="og:locale" content="es_ES">
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <h1>Murcia<span>Gram</span></h1>
+    <p>Inspiración visual del patrimonio, naturaleza y gastronomía murciana</p>
+  </header>
+
+  <aside class="site-sidebar" aria-label="Filtros por temática">
+    <h2>Explorar por categoría</h2>
+    <nav class="filter-nav">
+      <ul>
+        <li><a href="#todos" class="active">Todos los destinos</a></li>
+        <li><a href="#patrimonio">Patrimonio Histórico</a></li>
+        <li><a href="#naturaleza">Espacios Naturales</a></li>
+        <li><a href="#costa">Costa Cálida</a></li>
+        <li><a href="#gastronomia">Gastronomía y Vino</a></li>
+      </ul>
+    </nav>
+    <section class="sidebar-info">
+      <h3>Turismo Región de Murcia</h3>
+      <p>Guarda tus destinos favoritos pulsando el corazón o accede a las guías oficiales de cada municipio.</p>
+    </section>
+  </aside>
+
+  <main class="gallery-container" id="todos">
+    
+    <!-- TARJETA 1: CARTAGENA (Sin loading="lazy" por estar en el viewport inicial / LCP) -->
+    <article class="pin-card" tabindex="0">
+      <figure class="pin-media">
+        <picture>
+          <source media="(width <= 600px)" srcset="assets/img/cartagena-mobile.jpg">
+          <img src="assets/img/cartagena-desktop.jpg" alt="Teatro Romano de Cartagena al atardecer" width="1000" height="750">
+        </picture>
+
+        <figcaption class="pin-overlay">
+          <p class="pin-description">Más de 3.000 años de historia frente al Mediterráneo. Descubre su Teatro Romano y su puerto milenario.</p>
+          <menu class="pin-actions">
+            <li>
+              <input type="checkbox" id="like-cartagena" class="like-toggle" aria-label="Me gusta Cartagena">
+              <label for="like-cartagena" class="btn-like" title="Guardar en favoritos">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+              </label>
+            </li>
+            <li>
+              <a href="https://turismo.cartagena.es/" target="_blank" rel="noopener noreferrer" class="btn-external" title="Web oficial de Turismo de Cartagena" aria-label="Visitar web oficial de Cartagena">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zm-2 16H5V5h7V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7h-7z"/></svg>
+              </a>
+            </li>
+          </menu>
+        </figcaption>
+      </figure>
+
+      <header class="pin-info">
+        <span class="pin-tag">Patrimonio &amp; Costa</span>
+        <h2>Cartagena</h2>
+      </header>
+    </article>
+
+    <!-- TARJETA 2: LORCA -->
+    <article class="pin-card" tabindex="0">
+      <figure class="pin-media">
+        <picture>
+          <source media="(width <= 600px)" srcset="assets/img/lorca-mobile.jpg">
+          <img src="assets/img/lorca-desktop.jpg" alt="Castillo de Lorca, Fortaleza del Sol" loading="lazy" width="1000" height="750">
+        </picture>
+
+        <figcaption class="pin-overlay">
+          <p class="pin-description">La Ciudad del Sol. Recorre su imponente fortaleza medieval y su casco histórico barroco.</p>
+          <menu class="pin-actions">
+            <li>
+              <input type="checkbox" id="like-lorca" class="like-toggle" aria-label="Me gusta Lorca">
+              <label for="like-lorca" class="btn-like" title="Guardar en favoritos">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+              </label>
+            </li>
+            <li>
+              <a href="https://www.lorcaturismo.es/" target="_blank" rel="noopener noreferrer" class="btn-external" title="Web oficial de Turismo de Lorca" aria-label="Visitar web oficial de Lorca">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zm-2 16H5V5h7V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7h-7z"/></svg>
+              </a>
+            </li>
+          </menu>
+        </figcaption>
+      </figure>
+
+      <header class="pin-info">
+        <span class="pin-tag">Patrimonio Histórico</span>
+        <h2>Lorca</h2>
+      </header>
+    </article>
+
+    <!-- TARJETA 3: CARAVACA DE LA CRUZ -->
+    <article class="pin-card" tabindex="0">
+      <figure class="pin-media">
+        <picture>
+          <source media="(width <= 600px)" srcset="assets/img/caravaca-mobile.jpg">
+          <img src="assets/img/caravaca-desktop.jpg" alt="Basílica de la Vera Cruz en Caravaca" loading="lazy" width="1000" height="750">
+        </picture>
+
+        <figcaption class="pin-overlay">
+          <p class="pin-description">Ciudad Santa y destino de peregrinación jubilar rodeada de las Fuentes del Marqués.</p>
+          <menu class="pin-actions">
+            <li>
+              <input type="checkbox" id="like-caravaca" class="like-toggle" aria-label="Me gusta Caravaca de la Cruz">
+              <label for="like-caravaca" class="btn-like" title="Guardar en favoritos">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+              </label>
+            </li>
+            <li>
+              <a href="https://www.turismocaravaca.com/" target="_blank" rel="noopener noreferrer" class="btn-external" title="Web oficial de Turismo de Caravaca" aria-label="Visitar web oficial de Caravaca">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zm-2 16H5V5h7V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7h-7z"/></svg>
+              </a>
+            </li>
+          </menu>
+        </figcaption>
+      </figure>
+
+      <header class="pin-info">
+        <span class="pin-tag">Cultura &amp; Naturaleza</span>
+        <h2>Caravaca de la Cruz</h2>
+      </header>
+    </article>
+
+    <!-- TARJETA 4: CALBLANQUE -->
+    <article class="pin-card" tabindex="0">
+      <figure class="pin-media">
+        <picture>
+          <source media="(width <= 600px)" srcset="assets/img/calblanque-mobile.jpg">
+          <img src="assets/img/calblanque-desktop.jpg" alt="Playas vírgenes del Parque Regional de Calblanque" loading="lazy" width="1000" height="750">
+        </picture>
+
+        <figcaption class="pin-overlay">
+          <p class="pin-description">Calas vírgenes de arena dorada, dunas fósiles y salinas en un entorno natural protegido.</p>
+          <menu class="pin-actions">
+            <li>
+              <input type="checkbox" id="like-calblanque" class="like-toggle" aria-label="Me gusta Calblanque">
+              <label for="like-calblanque" class="btn-like" title="Guardar en favoritos">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+              </label>
+            </li>
+            <li>
+              <a href="https://www.murciaturistica.es/" target="_blank" rel="noopener noreferrer" class="btn-external" title="Información Parque Regional Calblanque" aria-label="Visitar web oficial de Calblanque">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zm-2 16H5V5h7V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7h-7z"/></svg>
+              </a>
+            </li>
+          </menu>
+        </figcaption>
+      </figure>
+
+      <header class="pin-info">
+        <span class="pin-tag">Espacio Natural</span>
+        <h2>Parque de Calblanque</h2>
+      </header>
+    </article>
+
+    <!-- TARJETA 5: MURCIA CAPITAL -->
+    <article class="pin-card" tabindex="0">
+      <figure class="pin-media">
+        <picture>
+          <source media="(width <= 600px)" srcset="assets/img/murcia-mobile.jpg">
+          <img src="assets/img/murcia-desktop.jpg" alt="Catedral de Santa María en la Plaza del Cardenal Belluga" loading="lazy" width="1000" height="750">
+        </picture>
+
+        <figcaption class="pin-overlay">
+          <p class="pin-description">La capital de la huerta de Europa. Disfruta de su Catedral barroca y el tapeo en sus plazas.</p>
+          <menu class="pin-actions">
+            <li>
+              <input type="checkbox" id="like-murcia" class="like-toggle" aria-label="Me gusta Murcia">
+              <label for="like-murcia" class="btn-like" title="Guardar en favoritos">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+              </label>
+            </li>
+            <li>
+              <a href="https://turismodemurcia.es/" target="_blank" rel="noopener noreferrer" class="btn-external" title="Web oficial de Turismo de Murcia" aria-label="Visitar web oficial de Murcia">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zm-2 16H5V5h7V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7h-7z"/></svg>
+              </a>
+            </li>
+          </menu>
+        </figcaption>
+      </figure>
+
+      <header class="pin-info">
+        <span class="pin-tag">Gastronomía &amp; Arte</span>
+        <h2>Murcia</h2>
+      </header>
+    </article>
+
+    <!-- TARJETA 6: JUMILLA -->
+    <article class="pin-card" tabindex="0">
+      <figure class="pin-media">
+        <picture>
+          <source media="(width <= 600px)" srcset="assets/img/jumilla-mobile.jpg">
+          <img src="assets/img/jumilla-desktop.jpg" alt="Viñedos y Castillo de Jumilla" loading="lazy" width="1000" height="750">
+        </picture>
+
+        <figcaption class="pin-overlay">
+          <p class="pin-description">Tierra de vinos con Denominación de Origen Monastrell, bodegas centenarias y paisajes de altiplano.</p>
+          <menu class="pin-actions">
+            <li>
+              <input type="checkbox" id="like-jumilla" class="like-toggle" aria-label="Me gusta Jumilla">
+              <label for="like-jumilla" class="btn-like" title="Guardar en favoritos">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+              </label>
+            </li>
+            <li>
+              <a href="https://jumillaturismo.es/" target="_blank" rel="noopener noreferrer" class="btn-external" title="Web oficial de Turismo de Jumilla" aria-label="Visitar web oficial de Jumilla">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zm-2 16H5V5h7V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7h-7z"/></svg>
+              </a>
+            </li>
+          </menu>
+        </figcaption>
+      </figure>
+
+      <header class="pin-info">
+        <span class="pin-tag">Enoturismo</span>
+        <h2>Jumilla</h2>
+      </header>
+    </article>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 MurciaGram — Consejería de Turismo de la Región de Murcia. Todos los derechos reservados.</p>
+  </footer>
+
+</body>
+</html>

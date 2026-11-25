@@ -1,0 +1,26 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Optimizar Imágenes MurciaGram (ImageMagick)",
+      "type": "shell",
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "linux": {
+        "command": "mkdir -p assets/img && for f in assets/raw/*.{jpg,jpeg,png,JPG,JPEG,PNG}; do [ -e \"$f\" ] || continue; name=$(basename \"${f%.*}\"); magick \"$f\" -resize 400x -quality 80 \"assets/img/${name}-mobile.jpg\"; magick \"$f\" -resize 1000x -quality 85 \"assets/img/${name}-desktop.jpg\"; done && echo 'Imágenes optimizadas correctamente en assets/img/'"
+      },
+      "osx": {
+        "command": "mkdir -p assets/img && for f in assets/raw/*.{jpg,jpeg,png,JPG,JPEG,PNG}; do [ -e \"$f\" ] || continue; name=$(basename \"${f%.*}\"); magick \"$f\" -resize 400x -quality 80 \"assets/img/${name}-mobile.jpg\"; magick \"$f\" -resize 1000x -quality 85 \"assets/img/${name}-desktop.jpg\"; done && echo 'Imágenes optimizadas correctamente en assets/img/'"
+      },
+      "windows": {
+        "command": "powershell -NoProfile -Command \"New-Item -ItemType Directory -Force -Path 'assets/img' | Out-Null; Get-ChildItem 'assets/raw' -Include *.jpg,*.jpeg,*.png -Recurse | ForEach-Object { $name = $_.BaseName; magick $_.FullName -resize 400x -quality 80 \"assets/img/$name-mobile.jpg\"; magick $_.FullName -resize 1000x -quality 85 \"assets/img/$name-desktop.jpg\" }; Write-Host 'Imágenes optimizadas correctamente en assets/img/'\""
+      },
+      "problemMatcher": [],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    }
+  ]
+}

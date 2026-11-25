@@ -1,0 +1,486 @@
+/* ==========================================================================
+   1. VARIABLES Y RESET BASE (MOBILE-FIRST < 600px)
+   ========================================================================== */
+:root {
+  --color-primary: #a6192e;       /* Carmesí Región de Murcia */
+  --color-primary-dark: #7d1121;
+  --color-bg: #f8f9fa;
+  --color-surface: #ffffff;
+  --color-text: #1f2937;
+  --color-text-muted: #6b7280;
+  --color-border: #e5e7eb;
+  --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-card-hover: 0 14px 28px rgba(166, 25, 46, 0.18);
+  --bezier-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+  --bezier-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --radius-lg: 16px;
+  --radius-sm: 8px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ==========================================================================
+   2. CABECERA, ASIDE Y PIE (ESTRUCTURA BASE MÓVIL)
+   ========================================================================== */
+.site-header {
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  padding: 1.25rem 1rem;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+.site-header h1 {
+  font-size: 1.75rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--color-text);
+}
+
+.site-header h1 span {
+  color: var(--color-primary);
+}
+
+.site-header p {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  margin-top: 0.25rem;
+}
+
+/* Menú de filtros en móvil: barra horizontal desplazable */
+.site-sidebar {
+  background-color: var(--color-surface);
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.site-sidebar h2,
+.sidebar-info {
+  display: none;
+}
+
+.filter-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.filter-nav ul::-webkit-scrollbar {
+  display: none;
+}
+
+.filter-nav a {
+  display: inline-block;
+  white-space: nowrap;
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid var(--color-border);
+  transition: background-color 0.25s var(--bezier-smooth), color 0.25s var(--bezier-smooth);
+}
+
+.filter-nav a:hover,
+.filter-nav a.active {
+  background-color: var(--color-primary);
+  color: #ffffff;
+  border-color: var(--color-primary);
+}
+
+.site-footer {
+  background-color: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  text-align: center;
+  padding: 1.5rem 1rem;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin-top: auto;
+}
+
+/* ==========================================================================
+   3. GALERÍA MÓVIL (< 600px): UNA SOLA COLUMNA CON FLEXBOX
+   ========================================================================== */
+.gallery-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1.25rem 1rem;
+  width: 100%;
+}
+
+/* ==========================================================================
+   4. DISEÑO DE TARJETAS Y MICROINTERACCIONES PINTEREST
+   ========================================================================== */
+.pin-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition:
+    transform 0.4s var(--bezier-smooth),
+    box-shadow 0.4s var(--bezier-smooth),
+    border-color 0.4s var(--bezier-smooth);
+}
+
+/* Preparado para fase futura con JS: reordenación automática en Flexbox/Grid */
+.pin-card.is-liked,
+.pin-card:has(.like-toggle:checked) {
+  order: -1;
+  border-color: var(--color-primary);
+  box-shadow: 0 8px 24px rgba(166, 25, 46, 0.22);
+}
+
+/* Hover y Foco por teclado */
+.pin-card:hover,
+.pin-card:focus-within {
+  transform: translateY(-6px) scale(1.015);
+  box-shadow: var(--shadow-card-hover);
+  border-color: var(--color-primary);
+  outline: none;
+}
+
+.pin-media {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  background-color: #e5e7eb;
+}
+
+.pin-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition:
+    transform 0.55s var(--bezier-smooth),
+    filter 0.4s var(--bezier-smooth);
+}
+
+/* Oscurecimiento sutil y zoom suave al hacer hover/focus */
+.pin-card:hover .pin-media img,
+.pin-card:focus-within .pin-media img {
+  transform: scale(1.06);
+  filter: brightness(0.55);
+}
+
+/* Capa de Interacción Estilo Pinterest (inicialmente oculta) */
+.pin-overlay {
+  position: absolute;
+  inset: 0;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  opacity: 0;
+  visibility: hidden;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.35) 0%,
+    rgba(0, 0, 0, 0.15) 45%,
+    rgba(0, 0, 0, 0.75) 100%
+  );
+  transition:
+    opacity 0.35s var(--bezier-smooth),
+    visibility 0.35s var(--bezier-smooth);
+}
+
+.pin-card:hover .pin-overlay,
+.pin-card:focus-within .pin-overlay {
+  opacity: 1;
+  visibility: visible;
+}
+
+.pin-description {
+  color: #ffffff;
+  font-size: 0.92rem;
+  line-height: 1.45;
+  transform: translateY(10px);
+  transition: transform 0.4s var(--bezier-smooth);
+}
+
+.pin-card:hover .pin-description,
+.pin-card:focus-within .pin-description {
+  transform: translateY(0);
+}
+
+.pin-actions {
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+/* Ocultar checkbox nativo manteniendo accesibilidad */
+.like-toggle {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.btn-like,
+.btn-external {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.92);
+  color: var(--color-text);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  transition:
+    transform 0.3s var(--bezier-bounce),
+    background-color 0.25s var(--bezier-smooth),
+    color 0.25s var(--bezier-smooth);
+}
+
+.btn-like svg,
+.btn-external svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+.btn-like:hover,
+.btn-external:hover {
+  transform: scale(1.12);
+  background-color: #ffffff;
+  color: var(--color-primary);
+}
+
+/* EFECTO PERMANENTE AL HACER CLIC EN "ME GUSTA" (CSS puro + clase para futuro JS) */
+.like-toggle:checked + .btn-like,
+.btn-like.is-active {
+  background-color: var(--color-primary);
+  color: #ffffff;
+  transform: scale(1.15);
+  box-shadow: 0 0 0 4px rgba(166, 25, 46, 0.35);
+}
+
+.pin-info {
+  padding: 1rem 1.25rem;
+}
+
+.pin-tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-primary);
+  margin-bottom: 0.25rem;
+}
+
+.pin-info h2 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+/* ==========================================================================
+   5. TABLETA: (width >= 600px) and (width <= 800px) -> 2 COLUMNAS
+   ========================================================================== */
+@media (width >= 600px) and (width <= 800px) {
+  .gallery-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    padding: 1.75rem;
+  }
+}
+
+/* ==========================================================================
+   6. ESCRITORIO: (width > 800px) -> CSS GRID AVANZADO + GALERÍA FLEXBOX FLUIDA
+   ========================================================================== */
+@media (width > 800px) {
+  body {
+    display: grid;
+    grid-template-columns: 270px 1fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+      "header header"
+      "sidebar main"
+      "footer footer";
+  }
+
+  .site-header {
+    grid-area: header;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 2.5rem;
+    text-align: left;
+  }
+
+  .site-sidebar {
+    grid-area: sidebar;
+    border-bottom: none;
+    border-right: 1px solid var(--color-border);
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .site-sidebar h2 {
+    display: block;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-text-muted);
+    margin-bottom: 0.75rem;
+  }
+
+  .filter-nav ul {
+    flex-direction: column;
+    overflow-x: visible;
+    gap: 0.4rem;
+  }
+
+  .filter-nav a {
+    display: block;
+    border-radius: var(--radius-sm);
+    padding: 0.65rem 1rem;
+    border: none;
+    background-color: transparent;
+  }
+
+  .filter-nav a:hover,
+  .filter-nav a.active {
+    background-color: var(--color-primary);
+    color: #ffffff;
+  }
+
+  .sidebar-info {
+    display: block;
+    margin-top: auto;
+    padding: 1rem;
+    background-color: var(--color-bg);
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--color-border);
+  }
+
+  .sidebar-info h3 {
+    font-size: 0.9rem;
+    margin-bottom: 0.35rem;
+    color: var(--color-primary);
+  }
+
+  .sidebar-info p {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+  }
+
+  /* Cuerpo principal: Galería Flexbox fluida */
+  .gallery-container {
+    grid-area: main;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 1.75rem;
+    padding: 2rem 2.5rem;
+  }
+
+  .pin-card {
+    flex: 1 1 300px;
+    max-width: 420px;
+  }
+
+  .site-footer {
+    grid-area: footer;
+  }
+}
+
+/* ==========================================================================
+   7. MEDIA QUERY DE IMPRESIÓN (@media print)
+   ========================================================================== */
+@media print {
+  * {
+    background: #ffffff !important;
+    color: #000000 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  body {
+    display: block;
+    font-size: 12pt;
+    line-height: 1.4;
+  }
+
+  /* Ocultar menú lateral, navegación y botones de interacción */
+  .site-sidebar,
+  .pin-actions,
+  .like-toggle {
+    display: none !important;
+  }
+
+  .site-header {
+    position: static;
+    border-bottom: 2px solid #000000;
+    padding: 0 0 1rem 0;
+    margin-bottom: 1.5rem;
+  }
+
+  .gallery-container {
+    display: block;
+    padding: 0;
+  }
+
+  .pin-card {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    border: 1px solid #cccccc;
+    margin-bottom: 1.5rem;
+  }
+
+  .pin-media img {
+    filter: none !important;
+    transform: none !important;
+    max-height: 220px;
+  }
+
+  /* Mostrar la descripción en papel debajo de la foto */
+  .pin-overlay {
+    position: static;
+    opacity: 1 !important;
+    visibility: visible !important;
+    padding: 0.75rem 1.25rem 0;
+  }
+
+  .pin-description {
+    transform: none !important;
+    font-size: 10.5pt;
+  }
+}
